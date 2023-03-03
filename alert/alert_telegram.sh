@@ -2,22 +2,6 @@
 source ./variable/setting.sh
 
 
-# URL API post telegeram
-URL="https://api.telegram.org/bot${TOKEN}/sendMessage"
-
-ERROR="
-Dia chi IP : x.x.x.x / 24
-Hostname: Ubuntu 20-04LTS
-Chuyen trang thai Failover bi loi vui long kiem tra lai
-"
-
-SUCCESS="
-Dia chi IP : x.x.x.x / 24
-Hostname: Ubuntu 20-04LTS
-Chuyen trang thai Failover thanh cong
-"
-
-
 # Send Alert Error
 sendAlertTelegramError (){
 curl -s -X POST $URL \
