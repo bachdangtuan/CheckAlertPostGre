@@ -10,9 +10,7 @@ output=$(ping -c 1 "$ip_address" 2>&1)
 if [[ $output == *"1 received"* ]]; then
 #   ssh postgres@"$slave_ip"  && pg_ctl -D "$pg_home" promote
 #   exit 1
-  sleep 5
   sendAlertTelegramSuccess
 else
-  sleep 5
   sendAlertTelegramError
 fi
