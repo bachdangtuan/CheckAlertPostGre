@@ -2,8 +2,9 @@
 
 hostname=$(hostname)
 
-myip=$(hostname -I | awk '{print $1}')
+checkmyiplocal(){
+    hostname -I | awk '{print $1}'
+}
 
-
-echo $hostname
-echo $myip
+myip=$checkmyiplocal
+echo myip
