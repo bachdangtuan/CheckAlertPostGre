@@ -9,17 +9,17 @@ hostname_server=$hostname
 echo host_ip
 
 ERROR="
-[ERROR]
+🚨[SWITCH-ERROR]🚨
 Server: ${hostname_server}
 Địa chỉ IP : ${host_ip} / 24
-Nội dung: Chuyen trang thai automatic Master-Slaves Failover bi loi vui long kiem tra lai !
+Nội dung: Chuyển trạng thái master - slaves databases postgre không thành công !
 "
 
 SUCCESS="
-✅[SUCCESS]✅
+✅[SWITCH-SUCCESS]✅
 Server: ${hostname_server}
 Địa chỉ IP : ${host_ip} / 24
-Nội dung: Chuyển master - slaves thành công vui lòng kiểm tra lại databases
+Nội dung: Chuyển master - slaves thành công vui lòng kiểm tra lại trạng thái databases !
 "
 
 
