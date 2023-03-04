@@ -17,17 +17,8 @@ Server: ${hostname_server}
 Địa chỉ IP : ${host_ip} / 24
 Nội dung: Chuyển trạng thái master - slaves databases postgre không thành công !
 --------
-Nguyên nhân: Không thể kết nối ping tới chủ slaves, vui lòng kiểm tra kết nối
-"
-
-ERROR_SWITCH="
-🚨[SWITCH-ERROR]🚨
-Server: ${hostname_server}
-Địa chỉ IP : ${host_ip} / 24
-Nội dung: Chuyển trạng thái master - slaves databases postgre không thành công !
---------
-Nguyên nhân: Nguyên nhân có thể do lỗi phân quyền, sai databases, hoặc tài khoản không đúng
-vui lòng kiểm tra lại
+Nguyên nhân: Không thể ping tới chủ slaves, có thể do lỗi phân quyền, sai databases, hoặc tài khoản không đúng
+vui lòng kiểm tra lại vui lòng kiểm tra kết nối
 "
 
 SUCCESS="
@@ -38,27 +29,12 @@ Nội dung: Chuyển master - slaves thành công vui lòng kiểm tra lại tr�
 "
 
 
-alertPingFail(){
+# Send Alert Error
+sendAlertTelegramError (){
 curl -s -X POST $URL \
 -G -d chat_id=$CHAT_ID \
 --data-urlencode "text=$ERROR" \
 -d "parse_mode=HTML"
-}
-
-alertPingOkSwitchError(){
-curl -s -X POST $URL \
--G -d chat_id=$CHAT_ID \
---data-urlencode "text=$ERROR_SWITCH" \
--d "parse_mode=HTML"
-}
-
-# Send Alert Error
-sendAlertTelegramError (){
-if [[ $output == *"1 received"* ]]; then
-  alertPingOkSwitchError
-else
-  alertPingFail
-fi
 
 }
 
