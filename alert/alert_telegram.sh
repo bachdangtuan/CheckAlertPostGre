@@ -3,10 +3,10 @@ source ./variable/setting.sh
 source ./check_os/check_os.sh
 
 
+host_ip=$myip
 hostname_server=$hostname
-host_ip= $myip
 
-
+echo host_ip
 
 ERROR="
 [ERROR]
